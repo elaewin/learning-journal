@@ -2,6 +2,8 @@ import os
 import sys
 import transaction
 
+from datetime import datetime
+
 from sqlalchemy import engine_from_config
 
 from pyramid.paster import (
@@ -36,5 +38,5 @@ def main(argv=sys.argv):
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)
     with transaction.manager:
-        model = Entry(title='Entry Title', body='', created='', edited='')
+        model = Entry(title='Entry Title', body='', created=datetime.utcnow(), edited=datetime.utcnow())
         DBSession.add(model)
