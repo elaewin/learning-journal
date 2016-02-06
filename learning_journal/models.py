@@ -44,11 +44,11 @@ class Entry(Base):
 
     @classmethod
     def all(cls):
-        all_entries = session.query(Entry).order_by(desc(Entry.id))
+        all_entries = cls.query(Entry).order_by(desc(Entry.id))
         return [(entry.title) for entry in all_entries]
 
     @classmethod
     def by_id(cls, requested_id):
-        return session.query(Entry).get(requested_id)
+        return cls.query(Entry).get(requested_id)
 
 Index('my_index', Entry.title, unique=True, mysql_length=255)
