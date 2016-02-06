@@ -1,11 +1,9 @@
 from datetime import datetime
 
 from sqlalchemy import (
-    CheckConstraint,
     Column,
     DateTime,
     desc,
-    func,
     Index,
     Integer,
     Unicode
@@ -28,7 +26,7 @@ class Entry(Base):
     __tablename__ = 'entries'
     id = Column(Integer, primary_key=True)
     title = Column(Unicode(length=255), nullable=False, unique=True)
-    body = Column(Unicode, default='')
+    body = Column(Unicode)
     created = Column(DateTime, default=datetime.utcnow)
     edited = Column(DateTime, onupdate=datetime.utcnow)
 
