@@ -8,8 +8,7 @@ from sqlalchemy import (
     func,
     Index,
     Integer,
-    String,
-    Text
+    Unicode
     )
 
 from sqlalchemy.ext.declarative import declarative_base
@@ -29,8 +28,8 @@ query = DBSession.query_property()
 class Entry(Base):
     __tablename__ = 'entries'
     id = Column(Integer, primary_key=True)
-    title = Column(String(255), CheckConstraint('title!=""'), unique=True)
-    body = Column(Text, default='')
+    title = Column(Unicode(255), CheckConstraint('title!=""'), unique=True)
+    body = Column(Unicode, default='')
     created = Column(DateTime, default=datetime.utcnow)
     edited = Column(DateTime, onupdate=datetime.utcnow)
 
