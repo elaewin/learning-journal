@@ -33,6 +33,7 @@ class Entry(Base):
 
     @classmethod
     def all(cls, session=None):
+        """Returns all the entries in the database, with the most recent entry first."""
         if session is None:
             session = DBSession
         all_entries = session.query(cls).order_by(desc(cls.id))
@@ -40,6 +41,7 @@ class Entry(Base):
 
     @classmethod
     def by_id(cls, requested_id, session=None):
+        """Returns a single entry, given an id."""
         if session is None:
             session = DBSession
         return session.query(cls).get(requested_id)
