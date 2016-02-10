@@ -12,6 +12,7 @@ from .forms import EntryCreateForm
 from .models import (
     DBSession,
     Entry,
+    User,
     )
 
 

@@ -47,3 +47,22 @@ class Entry(Base):
         return session.query(cls).get(requested_id)
 
 # Index('my_index', Entry.title, unique=True, mysql_length=255)
+
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    username = Column(Unicode(length=255), nullable=False, unique=True, index=True)
+    password = Column(Unicode, nullable=False)
+
+    @classmethod
+    def get_user(cls, username, session=None):
+        if session is None:
+            session = DBSession
+        return [o.user for o in session.query(cls).filter(cls.user == username)]
+        # # Should there be an if/else statement here?
+        # valid_user = [o.user for o in session.query(cls).filter(cls.user == username)]
+        # if valid_user:
+        #     return valid_user
+        # else:
+        #     return "User not found."
