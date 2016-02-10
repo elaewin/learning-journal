@@ -6,7 +6,7 @@ from sqlalchemy import (
     desc,
     Index,
     Integer,
-    Unicode
+    Unicode,
     UnicodeText
     )
 
