@@ -2,9 +2,13 @@
 {% block body %}
 <article>
   <h1>{{ entry.title }}</h1>
-  <hr/>
+  <hr />
   <p>{{ entry.body }}</p>
-  <hr/>
+  <hr />
   <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong></p>
+  <p><a href="{{ request.route_url('action', action='create') }}">New Entry</a></p>
 </article>
+<form>
+    <p><input type="edit_entry" name="edit_entry" value="Edit Entry" /></p>
+</form>
 {% endblock %}

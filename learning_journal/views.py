@@ -7,7 +7,10 @@ from pyramid.httpexceptions import (
 
 from sqlalchemy.exc import DBAPIError
 
-from .forms import EntryCreateForm
+from .forms import (
+    EntryCreateForm,
+    # EntryEditForm,
+    )
 
 from .models import (
     DBSession,
@@ -42,9 +45,15 @@ def create(request):
     return {'form': form, 'action': request.matchdict.get('action')}
 
 
-@view_config(route_name='action', match_param='action=edit', renderer='string')
+@view_config(route_name='action', match_param='action=edit', renderer='templates/edit.jinja2')
 def update(request):
-    return 'edit page'
+    entry = Entry()
+    form = EntryEditForm(request.POST)
+    if request.method == 'POST' and form.validate():
+        form.populate_obj(entry)
+        DBSession.add(entry)
+        return HTTPFound(location=request.route_url('home'))
+    return {'form': form, 'action': request.matchdict.get('action')}
 
 
 conn_err_msg = """
