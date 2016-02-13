@@ -12,6 +12,5 @@
   {% else %}
     <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong></p>
   {% endif %} #}
-  <p><input type="edit_entry" name="edit_entry" value="Edit Entry" /></p>
-</article>
+<p><a href="{{ request.route_url('action', action='edit') }}">Edit Entry</a></p></article>
 {% endblock %}

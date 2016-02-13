@@ -56,7 +56,7 @@ def edit(request):
         form.populate_obj(entry)
         DBSession.add(entry)
         return HTTPFound(location=request.route_url('detail', id=this_id))
-    return {'form': form, 'edit': request.matchdict.get('edit')}
+    return {'form': form, 'action': request.matchdict.get('action')}
 
 
 conn_err_msg = """
