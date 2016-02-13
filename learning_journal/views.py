@@ -9,7 +9,7 @@ from sqlalchemy.exc import DBAPIError
 
 from .forms import (
     EntryCreateForm,
-    # EntryEditForm,
+    EntryEditForm,
     )
 
 from .models import (
@@ -34,7 +34,7 @@ def view(request):
     return {'entry': entry}
 
 
-@view_config(route_name='action', match_param='action=create', renderer='templates/edit.jinja2')
+@view_config(route_name='action', match_param='action=create', renderer='templates/create.jinja2')
 def create(request):
     entry = Entry()
     form = EntryCreateForm(request.POST)
@@ -46,14 +46,17 @@ def create(request):
 
 
 @view_config(route_name='action', match_param='action=edit', renderer='templates/edit.jinja2')
-def update(request):
-    entry = Entry()
+def edit(request):
+    this_id = request.matchdict.get('id', -1)
+    entry = Entry.by_id(this_id)
     form = EntryEditForm(request.POST)
+    if not entry:
+        return HTTPNotFound
     if request.method == 'POST' and form.validate():
         form.populate_obj(entry)
         DBSession.add(entry)
-        return HTTPFound(location=request.route_url('home'))
-    return {'form': form, 'action': request.matchdict.get('action')}
+        return HTTPFound(location=request.route_url('detail', id=this_id))
+    return {'form': form, 'edit': request.matchdict.get('edit')}
 
 
 conn_err_msg = """

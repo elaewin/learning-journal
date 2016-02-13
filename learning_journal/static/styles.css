@@ -9,9 +9,10 @@ header {
     background-image: url("01TILE.png");
     background-repeat: repeat;
     border-bottom: 3px solid #fff;
-    color: #ccc;
+    color: red;
     margin:0;
     padding:0 0.75em;
+    /*text-shadow: 5px 5px 5px #000;*/
     width:100%;
 }
 
@@ -27,7 +28,7 @@ header a:hover,
 footer a:hover { color:#fff; }
 
 header a:visited, 
-footer a:visited { color:#eee; }
+footer a:visited { color:red; }
 
 header aside {
     float:right;
@@ -89,6 +90,6 @@ footer {
     background-repeat: repeat;
     border-top: 3px solid #fff;
     border-bottom: 3px solid #fff;
-    color: #ccc;
+    color: #ffffcc;
     padding: 1em 0.75em;
 }

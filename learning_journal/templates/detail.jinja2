@@ -5,10 +5,13 @@
   <hr />
   <p>{{ entry.body }}</p>
   <hr />
-  <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong></p>
-  <p><a href="{{ request.route_url('action', action='create') }}">New Entry</a></p>
+  <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong><br>
+  Edited <strong title="{{ entry.edited }}">{{entry.edited}}</strong></p>
+{#   {% if entry.edited %}
+    <p>Edited <strong title="{{ entry.edited }}">{{entry.edited}}</strong></p>
+  {% else %}
+    <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong></p>
+  {% endif %} #}
+  <p><input type="edit_entry" name="edit_entry" value="Edit Entry" /></p>
 </article>
-<form>
-    <p><input type="edit_entry" name="edit_entry" value="Edit Entry" /></p>
-</form>
 {% endblock %}

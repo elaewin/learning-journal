@@ -23,6 +23,11 @@ DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
 
+# Question: how do I indicated that something has been edited, when I can't compare
+# the created and edited entries, b/c they will always be slightly different?
+# Should I create another column to track if something has been edited? Is there 
+# a way to compare only a certain amount of the datetime result?
+
 class Entry(Base):
     __tablename__ = 'entries'
     id = Column(Integer, primary_key=True)

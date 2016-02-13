@@ -8,12 +8,12 @@
   </head>
   <body>
     <header>
-      <nav><ul><li><a href="{{ request.route_url('home') }}">Home</a></li></ul></nav>
+      <nav><ul><li><strong><a href="{{ request.route_url('home') }}">Home</a></strong></li></ul></nav>
     </header>
     <main>
       <h1>My Python Journal</h1>
       <section id="content">{% block body %}{% endblock %}</section>
     </main>
-    <footer><p>Created in the UW PCE Python Certificate Program</p></footer>
+    <footer><p><strong>Created in the UW PCE Python Certificate Program</strong></p></footer>
   </body>
 </html>

@@ -1,29 +1,37 @@
-from wtforms import Form, TextField, TextAreaField, validators
+from wtforms import (
+    Form,
+    HiddenField,
+    IntegerField,
+    TextField,
+    TextAreaField,
+    validators,
+    widgets,
+    )
 
 strip_filter = lambda x: x.strip() if x else None
 
 
 class EntryCreateForm(Form):
     title = TextField(
-        'Entry title',
+        'Entry Title',
         [validators.Length(min=1, max=255)],
         filters=[strip_filter])
     body = TextAreaField(
-        'Entry body',
+        'Entry Body',
         [validators.Length(min=1)],
         filters=[strip_filter])
 
 
 class EntryEditForm(Form):
+    # entry_id = IntegerField(widget=HiddenInput())
+    entry_id = HiddenField(
+        'entry_id',
+        [validators.Required()])
     title = TextField(
         'Entry title',
         [validators.Length(min=1, max=255)],
-        filters=[strip_filter],
-        default= # .get the existing name for the title here)
-    '''from WTForms docs: If you just need to access the data for known
-    fields, you should use form.<field>.data, not this proxy property.'''
+        filters=[strip_filter])
     body = TextAreaField(
         'Entry body',
         [validators.Length(min=1)],
-        filters=[strip_filter],
-        default= # .get the contents of the body field here)
+        filters=[strip_filter])
