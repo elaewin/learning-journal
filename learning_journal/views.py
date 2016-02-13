@@ -48,16 +48,16 @@ def create(request):
 @view_config(route_name='action', match_param='action=edit', renderer='templates/edit.jinja2')
 def edit(request):
     this_id = request.matchdict.get('id', -1)
-    # entry = Entry.by_id(this_id)
-    # form = EntryEditForm(request.POST)
-    # if not entry:
-    #     return HTTPNotFound
-    # if request.method == 'POST' and form.validate():
-    #     form.populate_obj(entry)
-    #     DBSession.add(entry)
-    #     return HTTPFound(location=request.route_url('detail', id=this_id))
-    # return {'form': form, 'action': request.matchdict.get('action')}
-    return str(this_id)
+    entry = Entry.by_id(this_id)
+    form = EntryEditForm(request.POST)
+    if not entry:
+        return HTTPNotFound
+    if request.method == 'POST' and form.validate():
+        form.populate_obj(entry)
+        DBSession.add(entry)
+        return HTTPFound(location=request.route_url('detail', id=this_id))
+    return {'form': form, 'action': request.matchdict.get('action')}
+
 
 conn_err_msg = """
 Pyramid is having a problem using your SQL database.  The problem

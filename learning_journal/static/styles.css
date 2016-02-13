@@ -1,18 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Libre+Baskerville);
+
 body {
     background-color: #eee;
-    color:#111;
     margin:0;
     padding:0;
 }
 
 header {
-    background-image: url("01TILE.png");
+    background-image: url("01TILE-fullsz.png");
     background-repeat: repeat;
     border-bottom: 3px solid #fff;
-    color: red;
+    color: #660000;
+    float: left;
+    font-family: 'Libre Baskerville', serif;
     margin:0;
-    padding:0 0.75em;
-    /*text-shadow: 5px 5px 5px #000;*/
+    padding:5px 10px 0px;
+    text-shadow: 1px 1px 15px #fff;
     width:100%;
 }
 
@@ -28,7 +31,7 @@ header a:hover,
 footer a:hover { color:#fff; }
 
 header a:visited, 
-footer a:visited { color:red; }
+footer a:visited { color:#660000; }
 
 header aside {
     float:right;
@@ -36,7 +39,7 @@ header aside {
     text-align:right;
 }
 
-header ul {
+/* header ul {
     display:inline-block;
     list-style:none;
     list-style-type:none;
@@ -47,6 +50,14 @@ header ul li { margin:0 0.25em 0 0 }
 header ul li a {
     display:inline-block;
     padding:0;
+} */
+
+nav {
+    float: right;
+    font-family: 'Libre Baskerville', serif;
+    padding-right: 40px;
+    padding-top: 40px;
+    text-shadow: 1px 1px 15px #fff;
 }
 
 main { padding:0 0.75em 1em } 
@@ -62,7 +73,24 @@ main article {
     padding-left:0.5em 
 }
 
-main article h3 { margin-top:0 }
+main h1, h2 { 
+    font-family: 'Libre Baskerville', serif;
+    padding-top: 100px;
+}
+
+main ul { font-family: 'Open Sans', sans-serif; }
+
+main p {
+    color:#111;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main a:visited { color: #660000; }
+
+main article h3 { 
+    font-family: 'Libre Baskerville', sans-serif; 
+    margin-top:0
+}
 
 main article .entry_body { margin:0.5em }
 
@@ -77,7 +105,7 @@ main aside .field textarea { vertical-align:top }
 main aside .field label {
     display:inline-block;
     padding-top:2px
-    width:15%;
+    width:20%;
 }
 
 main aside .field input,
@@ -86,10 +114,13 @@ main aside .field textarea{ width:83% }
 main aside .control_row input { margin-left:16% }
 
 footer {
-    background-image: url("01TILE.png");
+    background-image: url("01TILE-fullsz.png");
     background-repeat: repeat;
     border-top: 3px solid #fff;
     border-bottom: 3px solid #fff;
-    color: #ffffcc;
+    color: #660000;
+    font-family: 'Open Sans'; sans-serif;
+    margin: 0px, auto;
     padding: 1em 0.75em;
+    text-shadow: 2px 2px 15px #fff;
 }
