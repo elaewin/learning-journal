@@ -54,8 +54,8 @@ def edit(request):
         return HTTPNotFound
     if request.method == 'POST' and form.validate():
         form.populate_obj(entry)
-        DBSession.update().values()
-        return HTTPFound(location=request.route_url('detail', id=str(id_to_edit)))
+        # DBSession.update().values()
+        return HTTPFound(location=request.route_url('detail', id=entry.id))
     return {'form': form, 'action': request.matchdict.get('action')}
 
 
