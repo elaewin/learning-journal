@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans|Libre+Baskerville);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu);
 
 body {
     background-color: #eee;
@@ -8,11 +8,12 @@ body {
 
 header {
     background-image: url("01TILE-fullsz.png");
+    background-position: center top;
     background-repeat: repeat;
     border-bottom: 3px solid #fff;
     color: #660000;
     float: left;
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Ubuntu', sans-serif;
     margin:0;
     padding:5px 10px 0px;
     text-shadow: 1px 1px 15px #fff;
@@ -39,24 +40,24 @@ header aside {
     text-align:right;
 }
 
-/* header ul {
-    display:inline-block;
+ header ul {
+    /*display:inline-block;*/
     list-style:none;
     list-style-type:none;
 }
 
-header ul li { margin:0 0.25em 0 0 }
+/*header ul li { margin:0 0.25em 0 0 }*/
 
 header ul li a {
-    display:inline-block;
+    /*display:inline-block;*/
     padding:0;
-} */
+} 
 
 nav {
     float: right;
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Ubuntu', sans-serif;
     padding-right: 40px;
-    padding-top: 40px;
+    padding-top: 20px;
     text-shadow: 1px 1px 15px #fff;
 }
 
@@ -74,7 +75,7 @@ main article {
 }
 
 main h1, h2 { 
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Ubuntu', sans-serif;
     padding-top: 100px;
 }
 
@@ -88,7 +89,7 @@ main p {
 main a:visited { color: #660000; }
 
 main article h3 { 
-    font-family: 'Libre Baskerville', sans-serif; 
+    font-family: 'Ubuntu', sans-serif; 
     margin-top:0
 }
 
@@ -115,6 +116,7 @@ main aside .control_row input { margin-left:16% }
 
 footer {
     background-image: url("01TILE-fullsz.png");
+    background-position: bottom;
     background-repeat: repeat;
     border-top: 3px solid #fff;
     border-bottom: 3px solid #fff;

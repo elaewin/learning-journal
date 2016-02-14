@@ -26,7 +26,8 @@ class EntryEditForm(Form):
     # entry_id = IntegerField(widget=HiddenInput())
     entry_id = HiddenField(
         'entry_id',
-        [validators.Required()])
+        [validators.Required()],
+        filters=[strip_filter])
     title = TextField(
         'Entry title',
         [validators.Length(min=1, max=255)],

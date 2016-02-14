@@ -47,15 +47,15 @@ def create(request):
 
 @view_config(route_name='action', match_param='action=edit', renderer='templates/edit.jinja2')
 def edit(request):
-    this_id = request.matchdict.get('id', -1)
-    entry = Entry.by_id(this_id)
-    form = EntryEditForm(request.POST)
+    id_to_edit = int(request.params.get('id', -1))
+    entry = Entry.by_id(id_to_edit)
+    form = EntryEditForm(request.POST, entry)
     if not entry:
         return HTTPNotFound
     if request.method == 'POST' and form.validate():
         form.populate_obj(entry)
-        DBSession.add(entry)
-        return HTTPFound(location=request.route_url('detail', id=this_id))
+        DBSession.update().values()
+        return HTTPFound(location=request.route_url('detail', id=str(id_to_edit)))
     return {'form': form, 'action': request.matchdict.get('action')}
 
 
