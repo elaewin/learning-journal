@@ -9,8 +9,8 @@
     {% endfor %}
     </ul>
   {% endif %}
-    <p>{{ field.label }}: {{ field }}</p>
+    <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
 {% endfor %}
-    <p><input type="submit" name="submit" value="Submit" /></p>
+    <p class="button"><input type="submit" name="submit" value="Submit" /></p>
 </form>
 {% endblock %}
