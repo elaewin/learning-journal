@@ -49,12 +49,12 @@ def create(request):
 def edit(request):
     id_to_edit = int(request.params.get('id', -1))
     entry = Entry.by_id(id_to_edit)
-    form = EntryEditForm(request.POST, entry)
     if not entry:
-        return HTTPNotFound
+        return HTTPNotFound()
+    form = EntryEditForm(request.POST, entry)
     if request.method == 'POST' and form.validate():
         form.populate_obj(entry)
-        # DBSession.update().values()
+        # DBSession.update(entry)
         return HTTPFound(location=request.route_url('detail', id=entry.id))
     return {'form': form, 'action': request.matchdict.get('action')}
 
