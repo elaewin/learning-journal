@@ -1,6 +1,6 @@
 {% extends "templates/layout.jinja2" %}
 {% block body %}
-<form action="{{ action }}" method="POST">
+<form action="{{ request.route_url('action', action='edit') }}" method="POST">
 {% for field in form %}
   {% if field.errors %}
     <ul>
@@ -9,8 +9,10 @@
     {% endfor %}
     </ul>
   {% endif %}
-    <p>{{ field.label }}: {{ field }}</p>
+    <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
 {% endfor %}
-    <p class="button"><input type="submit" name="submit" value="Submit" /></p>
+    <p><input type="submit" name="submit" value="Submit" /></p>
 </form>
 {% endblock %}
+
+{# request.route_url('detail', ('id', entry.id) #}

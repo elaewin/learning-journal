@@ -1,13 +1,8 @@
-import pdb
-
-from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.httpexceptions import (
     HTTPNotFound,
     HTTPFound,
     )
-
-from sqlalchemy.exc import DBAPIError
 
 from .forms import (
     EntryCreateForm,
@@ -49,7 +44,6 @@ def create(request):
 
 @view_config(route_name='action', match_param='action=edit', renderer='templates/edit.jinja2')
 def edit(request):
-    pdb.set_trace()
     id_to_edit = int(request.params.get('id', -1))
     entry = Entry.by_id(id_to_edit)
     if not entry:

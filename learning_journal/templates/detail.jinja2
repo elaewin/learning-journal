@@ -12,6 +12,6 @@
   {% else %}
     <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong></p>
   {% endif %} #}
-  <p><a href="{{ request.route_url('action', action='edit', _query=('id, entry.id)) }}">Edit Entry</a></p>
+  <p><a href="{{ request.route_url('action', action='edit', _query={'id': entry.id}) }}">Edit Entry</a></p>
 </article>
 {% endblock %}

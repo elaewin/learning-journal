@@ -23,7 +23,5 @@ class EntryCreateForm(Form):
 
 
 class EntryEditForm(EntryCreateForm):
-    entry_id = HiddenField(
-        'entry_id',
-        [validators.Required()])
+    id = HiddenField('entry_id')
 
