@@ -8,8 +8,10 @@ body {
     padding:0;
 }
 
+/* Header, Nav, Footer */
+
 header {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.80);
     border-bottom: 3px solid #fff;
     color: #660000;
     float: left;
@@ -17,7 +19,6 @@ header {
     margin:0;
     /*padding:5px 10px 0px;*/
     padding: 0 .75em .25em;
-    text-shadow: 1px 1px 15px #fff;
     width:100%;
 }
 
@@ -27,28 +28,28 @@ header:after {
     display:table;
 }
 
-header a, footer a { text-decoration:none }
-
-header a:hover, 
-footer a:hover { 
+header a, footer a, main a { 
     color: #660000;
+    text-decoration:none; 
+}
+
+header a:hover, footer a:hover { 
+    color: #fff;
     font-weight: bold;
-    /*text-shadow: -1px 1px 1px #ffcccc;*/
+    text-shadow: 0px 0px 5px #ff0000;
 }
 
-header a:visited, 
-footer a:visited { 
+header a:visited, footer a:visited { 
     color: #660000;
-    text-shadow: 1px 1px 15px #fff;
 }
 
-header aside {
-    float:right;
-    padding-right:0.75em;
-    text-align:right;
+header a:active, footer a:active { 
+    color: #eee;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #cc0000;
 }
 
- header ul {
+header ul {
     /*display:inline-block;*/
     list-style:none;
     list-style-type:none;
@@ -56,10 +57,10 @@ header aside {
 
 /*header ul li { margin:0 0.25em 0 0 }*/
 
-header ul li a {
-    /*display:inline-block;*/
+/*header ul li a {
+    display:inline-block;
     padding:0;
-} 
+} */
 
 nav {
     float: right;
@@ -68,6 +69,19 @@ nav {
     padding-top: 2em;
     text-shadow: 1px 1px 15px #fff;
 }
+
+footer {
+    background-color: rgba(255, 255, 255, 0.80);
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    color: #660000;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px, auto;
+    padding: 1em 0.75em;
+    text-align: center;
+}
+
+/* Main (Where template contents are displayed.) */
 
 main { padding: 6.5em 0.75em 1.5em } 
 
@@ -82,6 +96,8 @@ main h1, h2 {
     margin-top:0;
 }
 
+.shadowed { text-shadow: -2px -2px 2px #aaa; }
+
 main ul { font-family: 'Open Sans', sans-serif; }
 
 main p {
@@ -90,11 +106,18 @@ main p {
     margin-top: 0;
 }
 
+.smaller { 
+    font-size: 65%;
+    margin-bottom: 0;
+ }
+
 .form-field-text {
+    border: 1px solid #111;
     float:right;
-    margin-right: 3em;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 20px;
     vertical-align: text-top;
-    width: 83%;
+    width: 85%;
 }
 
 .form-label {
@@ -103,21 +126,28 @@ main p {
     font-weight: bold;
 }
 
-.button{
-    padding-left: 1em;
-    padding-top: .5em;
+.submit-button {
+    margin-bottom: 0;
+    padding-left: 20px;
+    padding-top: 5px;
 }
 
-main a:link { color: #660000; }
-main a:visited { color: #660000; }
-main a:hover { 
+main a { 
     color: #660000;
-    font-weight: bold;
-    /*text-shadow: -1px 1px #ffcccc;*/
 }
+
+main a:visited { color: #660000; }
+
+main a:hover { 
+    color: #eee;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #660000;
+}
+
 main a:active { 
-    color: #993333;
-    /*text-shadow: 0px 0px 2px #cc9999;*/
+    color: #eee;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #cc0000;
 }
 
 #content {
@@ -137,39 +167,32 @@ main article h3 {
     margin: .5em;
 }
 
-/*main article .entry_body { margin:0.5em }*/
-
-/*main aside { float:right }*/
-
-main aside .field { margin-bottom:1em }
-
-main aside .field input,
-main aside .field label,
-main aside .field textarea { align-content: flex-start; }
-
-main aside .field label {
-    display:inline-block;
-    padding-top:.5em;
-    width:20%;
-}
-
-main aside .field input,
-main aside .field textarea{ width:83%; }
-
-main aside .control_row input { margin-left:16%; }
-
 main form { border-top: .5em; }
 
 
+/* Buttons */
 
-footer {
-    background-color: rgba(255, 255, 255, 0.75);
-    border-top: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    color: #660000;
-    font-family: 'Open Sans', sans-serif;
-    margin: 0px, auto;
-    padding: 1em 0.75em;
-    text-align: center;
-    text-shadow: 2px 2px 15px #fff;
+.btn {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    font-family: 'Ubuntu', sans-serif;
+    color: #111;
+    font-size: .8em;
+    background: #ccc;
+    padding: 5px 10px 5px 10px;
+    border: solid #330000 1px;
+    text-decoration: none;
+}
+
+.btn:visited { color: #111; } 
+
+.btn:hover {
+    background: #660000;
+    color: #eee;
+    font-weight: bold;
+    text-decoration: none;
 }

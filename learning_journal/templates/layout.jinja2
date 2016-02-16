@@ -13,11 +13,14 @@
           <li><strong><a href="{{ request.route_url('home') }}">Home</a></strong></li>
         </ul>
       </nav>
-      <h1>My Python Journal</h1>
+      <h1 class="shadowed">My Python Journal</h1>
     </header>
     <main>
       <section id="content">{% block body %}{% endblock %}</section>
     </main>
-    <footer><p><strong>Created in the UW PCE Python Certificate Program</strong></p></footer>
+    <footer>
+      <p><strong>Created in the <a href="http://www.pce.uw.edu/certificates/python-programming.html">UW PCE Python Certificate Program</a></strong></p>
+      <p class="smaller">Background tile by <a href="http://shycustis.deviantart.com/">ShyCustis</a></p>
+    </footer>
   </body>
 </html>

@@ -9,9 +9,11 @@
     {% endfor %}
     </ul>
   {% endif %}
+  {% if field.widget.input_type != 'hidden' %}
     <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
+  {% endif %}
 {% endfor %}
-    <p><input type="submit" name="submit" value="Submit" /></p>
+    <p class="submit-button"><input class="btn" type="submit" name="submit" value="Update" /></p>
 </form>
 {% endblock %}
 
