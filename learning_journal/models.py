@@ -57,12 +57,12 @@ class User(Base):
 
     @classmethod
     def get_user(cls, username, session=None):
+        """Returns user information, given a username"""
         if session is None:
             session = DBSession
-        return [o.user for o in session.query(cls).filter(cls.user == username)]
-        # # Should there be an if/else statement here?
-        # valid_user = [o.user for o in session.query(cls).filter(cls.user == username)]
-        # if valid_user:
-        #     return valid_user
+        return session.query(cls).get(username)
+        # user = session.query(cls).get(username)
+        # if user:
+        #     return user
         # else:
         #     return "User not found."
