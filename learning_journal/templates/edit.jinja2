@@ -10,12 +10,7 @@
     </ul>
   {% endif %}
   <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
-{#   {% if field.widget.input_type != 'hidden' %}
-    <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
-  {% endif %}
- #}{% endfor %}
+{% endfor %}
     <p class="submit-button"><input class="btn" type="submit" name="submit" value="Update" /></p>
 </form>
 {% endblock %}
-
-{# request.route_url('detail', ('id', entry.id) #}
