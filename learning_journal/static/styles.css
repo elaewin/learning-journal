@@ -1,0 +1,199 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu);
+
+body {
+    /*background-color: #eee;*/
+    background-image: url("01TILE-fullsz.png");
+    background-repeat: repeat;
+    margin:0;
+    padding:0;
+}
+
+/* Header, Nav, Footer */
+
+header {
+    background-color: rgba(255, 255, 255, 0.60);
+    border-bottom: 3px solid #fff;
+    color: #660000;
+    float: left;
+    font-family: 'Ubuntu', sans-serif;
+    height: 80px;
+    margin:0;
+    /*padding:5px 10px 0px;*/
+    padding: 0 .75em .25em;
+    width:100%;
+}
+
+header:after {
+    clear:both;
+    content:"";
+    display:table;
+}
+
+header a, footer a, main a { 
+    color: #660000;
+    text-decoration:none; 
+}
+
+header a:hover, footer a:hover { 
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #ff0000;
+}
+
+header a:visited, footer a:visited { 
+    color: #660000;
+}
+
+header a:active, footer a:active { 
+    color: #eee;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #cc0000;
+}
+
+header ul {
+    /*display:inline-block;*/
+    list-style:none;
+    list-style-type:none;
+}
+
+/*header ul li { margin:0 0.25em 0 0 }*/
+
+/*header ul li a {
+    display:inline-block;
+    padding:0;
+} */
+
+nav {
+    float: right;
+    font-family: 'Ubuntu', sans-serif;
+    padding-right: 4em;
+    padding-top: 2em;
+    text-shadow: 1px 1px 15px #fff;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.60);
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    color: #660000;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px, auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+/* Main (Where template contents are displayed.) */
+
+main { padding: 105px 10px 25px; } 
+
+main::after {
+    clear:both;
+    content:"";
+    display:table;
+}
+
+main h1, h2 { 
+    font-family: 'Ubuntu', sans-serif;
+    margin-top:0;
+}
+
+.shadowed { text-shadow: -2px -2px 2px #aaa; }
+
+main ul { font-family: 'Open Sans', sans-serif; }
+
+main p {
+    color:#111;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0;
+}
+
+.smaller { 
+    font-size: 65%;
+    margin-bottom: 0;
+ }
+
+.form-field-text {
+    border: 1px solid #111;
+    float:right;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 20px;
+    vertical-align: text-top;
+    width: 85%;
+}
+
+.form-label {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.submit-button {
+    margin-bottom: 0;
+    padding-top: 5px;
+    text-align: center;
+}
+
+main a { 
+    color: #660000;
+}
+
+main a:visited { color: #660000; }
+
+main a:hover { 
+    color: #eee;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #660000;
+}
+
+main a:active { 
+    color: #eee;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px #cc0000;
+}
+
+#content {
+    background-color: #eee;
+    border: solid 1px #111;
+    border-radius: 5px;
+    padding: .75em .5em;
+}
+
+main article {
+    margin-bottom:.75em;
+    /*padding-left:0.5em */
+}
+
+main article h3 { 
+    font-family: 'Ubuntu', sans-serif; 
+    margin: .5em;
+}
+
+main form { border-top: .5em; }
+
+
+/* Buttons */
+
+.btn {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    font-family: 'Ubuntu', sans-serif;
+    color: #111;
+    font-size: .8em;
+    background: #ccc;
+    padding: 5px 10px 5px 10px;
+    border: solid #330000 1px;
+    text-decoration: none;
+}
+
+.btn:visited { color: #111; } 
+
+.btn:hover {
+    background: #660000;
+    color: #eee;
+    font-weight: bold;
+    text-decoration: none;
+}

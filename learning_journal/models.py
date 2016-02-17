@@ -33,6 +33,7 @@ class Entry(Base):
 
     @classmethod
     def all(cls, session=None):
+        """Returns all the entries in the database, with the most recent entry first."""
         if session is None:
             session = DBSession
         all_entries = session.query(cls).order_by(desc(cls.id))
@@ -40,8 +41,28 @@ class Entry(Base):
 
     @classmethod
     def by_id(cls, requested_id, session=None):
+        """Returns a single entry, given an id."""
         if session is None:
             session = DBSession
         return session.query(cls).get(requested_id)
 
 # Index('my_index', Entry.title, unique=True, mysql_length=255)
+
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    username = Column(Unicode(length=255), nullable=False, unique=True, index=True)
+    password = Column(Unicode, nullable=False)
+
+    @classmethod
+    def get_user(cls, username, session=None):
+        """Returns user information, given a username"""
+        if session is None:
+            session = DBSession
+        return session.query(cls).get(username)
+        # user = session.query(cls).get(username)
+        # if user:
+        #     return user
+        # else:
+        #     return "User not found."
