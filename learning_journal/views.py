@@ -82,7 +82,7 @@ def sign_in(request):
     if login_form and login_form.validate():
         user = User.get_user(login_form.username.data)
         if user and user.verify_password(login_form.password.data):
-            headers = remember(request, user.name)
+            headers = remember(request, user.username)
         else:
             headers = forget(request)
     else:
