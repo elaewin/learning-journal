@@ -5,7 +5,6 @@ gnureadline==6.3.3
 ipython==4.1.0
 ipython-genutils==0.1.0
 Jinja2==2.8
--e git+https://github.com/elaewin/learning-journal.git@675bdd91998da9683ebd9d42af8a4e6b6c84cb33#egg=learning_journal
 Mako==1.0.3
 MarkupSafe==0.23
 passlib==1.6.5
