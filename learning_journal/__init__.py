@@ -27,7 +27,7 @@ def main(global_config, **settings):
     Base.metadata.bind = engine
     config = Configurator(
         settings=settings,
-        authentication_policy=AuthTktAuthenticationPolicy('secret'),
+        authentication_policy=AuthTktAuthenticationPolicy(secret),
         authorization_policy=ACLAuthorizationPolicy(),
         default_permission='view',
         )
