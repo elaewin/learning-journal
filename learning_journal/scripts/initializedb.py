@@ -2,6 +2,9 @@ import os
 import sys
 import transaction
 
+from learning_journal.models import password_context
+from learning_journal.models import User
+
 from datetime import datetime
 
 from sqlalchemy import engine_from_config
@@ -38,5 +41,8 @@ def main(argv=sys.argv):
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)
     with transaction.manager:
-        model = Entry(title='Entry Title', body='', created=datetime.utcnow(), edited=datetime.utcnow())
-        DBSession.add(model)
+        # model = Entry(title='Entry Title', body='', created=datetime.utcnow(), edited=datetime.utcnow())
+        # DBSession.add(model)
+        encrypted = password_context.encrypt('admin')
+        admin = User(username='admin', password=encrypted)
+        DBSession.add(admin)
