@@ -197,7 +197,7 @@ main form { border-top: .5em; }
     text-decoration: none;
 }
 
-pre { margin: 0.5em 0 0.5em 1em; }
+pre { margin: 0.5em 0 0.5em 0.5em; }
 
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { 
@@ -205,6 +205,7 @@ pre { margin: 0.5em 0 0.5em 1em; }
     border-bottom: 2px solid #c3aeae;
     border-top: 2px solid #c3aeae;
     margin-bottom: 1em;
+    margin-left: 0.5em;
 }
 .codehilite .c { color: #888888 } /* Comment */
 .codehilite .err { color: #FF0000; background-color: #FFAAAA } /* Error */
