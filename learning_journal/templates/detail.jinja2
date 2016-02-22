@@ -5,13 +5,19 @@
   <hr />
   <p>{{ entry.body }}</p>
   <hr />
-  <p>Created: <strong title="{{ entry.created }}">{{ entry.created }}</strong><br>
-  Edited: <strong title="{{ entry.edited }}">{{ entry.edited }}</strong></p>
-{#   {% if entry.edited > entry.created %}
+{#   <p>Created: <strong title="{{ entry.created }}">{{ entry.created }}</strong><br>
+  Edited: <strong title="{{ entry.edited }}">{{ entry.edited }}</strong></p> #}
+  {% if entry.is_edited %}
     <p>Edited <strong title="{{ entry.edited }}">{{entry.edited}}</strong></p>
   {% else %}
     <p>Created <strong title="{{ entry.created }}">{{entry.created}}</strong></p>
-  {% endif %} #}
-  <p class='submit-button'><a class="btn" href="{{ request.route_url('action', action='edit', _query={'id': entry.id}) }}">Edit Entry</a></p>
+  {% endif %}
+  <p class='submit-button'>
+    {% if logged_in %}
+    ::
+    <a class="btn" href="{{ request.route_url('action', action='edit', _query={'id': entry.id}) }}">Edit Entry</a>
+    {% endif %}
+  </p>
+
 </article>
 {% endblock %}

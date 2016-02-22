@@ -31,13 +31,15 @@ def index_page(request):
         form = LoginForm()
     return {'entries': entries, 'login_form': form}
 
+
 @view_config(route_name='detail', renderer='templates/detail.jinja2')
 def view(request):
     this_id = request.matchdict.get('id', -1)
     entry = Entry.by_id(this_id)
     if not entry:
         return HTTPNotFound()
-    return {'entry': entry}
+    logged_in = authenticated_userid(request)
+    return {'entry': entry, 'logged_in': logged_in}
 
 
 @view_config(

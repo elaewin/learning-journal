@@ -25,5 +25,7 @@
 {% else %}
 <p>This journal is empty</p>
 {% endif %}
-<p class='submit-button'><a class="btn" href="{{ request.route_url('action', action='create') }}">New Entry</a></p>
+{% if not login_form %}
+  <p class='submit-button'><a class="btn" href="{{ request.route_url('action', action='create') }}">New Entry</a></p>
+{% endif %}
 {% endblock %}
