@@ -103,7 +103,12 @@ def sign_in_out(request):
 
 def render_markdown(content):
     """Renders content in html markup format."""
-    output = Markup(markdown.markdown(content))
+    output = Markup(
+        markdown.markdown(
+            content,
+            extensions=['codehilite(pygments_style=colorful)', 'fenced_code']
+            )
+        )
     return output
 
 
