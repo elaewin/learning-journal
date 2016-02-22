@@ -195,7 +195,9 @@ main form { border-top: .5em; }
     color: #eee;
     font-weight: bold;
     text-decoration: none;
-}.codehilite .hll { background-color: #ffffcc }
+}
+
+.codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #ffffff; }
 .codehilite .c { color: #888888 } /* Comment */
 .codehilite .err { color: #FF0000; background-color: #FFAAAA } /* Error */
