@@ -14,10 +14,8 @@
   {% endif %}
   <p class='submit-button'>
     {% if logged_in %}
-    ::
     <a class="btn" href="{{ request.route_url('action', action='edit', _query={'id': entry.id}) }}">Edit Entry</a>
     {% endif %}
   </p>
-
 </article>
 {% endblock %}

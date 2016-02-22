@@ -11,7 +11,7 @@
   {% endif %}
   {% if field.widget.input_type != 'hidden' %}
     <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
-  {% else% }
+  {% else %}
     {{ field.label }}{{ field }}
   {% endif %}
  {% endfor %}
