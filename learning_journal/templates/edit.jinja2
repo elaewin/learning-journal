@@ -12,7 +12,7 @@
   {% if field.widget.input_type != 'hidden' %}
     <p>{{ field.label(class_="form-label") }}: {{ field(class_="form-field-text") }}</p>
   {% else %}
-    {{ field.label }}{{ field }}
+    {{ field }}
   {% endif %}
  {% endfor %}
     <p class="submit-button"><input class="btn" type="submit" name="submit" value="Update" /></p>
