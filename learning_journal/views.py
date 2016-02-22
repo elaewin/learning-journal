@@ -1,3 +1,6 @@
+from jinja2 import Markup
+import markdown
+
 from pyramid.view import view_config
 from pyramid.httpexceptions import (
     HTTPNotFound,
@@ -25,6 +28,7 @@ from .models import (
 
 @view_config(route_name='home', renderer='templates/list.jinja2')
 def index_page(request):
+    """Configuration for list of entries."""
     entries = Entry.all()
     form = None
     if not authenticated_userid(request):
@@ -34,6 +38,7 @@ def index_page(request):
 
 @view_config(route_name='detail', renderer='templates/detail.jinja2')
 def view(request):
+    """Configuration for viewing a single entry."""
     this_id = request.matchdict.get('id', -1)
     entry = Entry.by_id(this_id)
     if not entry:
@@ -49,6 +54,7 @@ def view(request):
     permission='create',
     )
 def create(request):
+    """Configuration for creating a new entry."""
     entry = Entry()
     form = EntryCreateForm(request.POST)
     if request.method == 'POST' and form.validate():
@@ -65,6 +71,7 @@ def create(request):
     permission='edit',
     )
 def edit(request):
+    """Configuration for editing an existing entry."""
     id_to_edit = int(request.params.get('id', -1))
     entry = Entry.by_id(id_to_edit)
     if not entry:
@@ -79,6 +86,7 @@ def edit(request):
 @view_config(route_name='auth', match_param='action=in', renderer='string', request_method='POST')
 @view_config(route_name='auth', match_param='action=out', renderer='string')
 def sign_in_out(request):
+    """Configuration for logging in and out using authentication."""
     login_form = None
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
@@ -91,6 +99,13 @@ def sign_in_out(request):
     else:
         headers = forget(request)
     return HTTPFound(location=request.route_url('home'), headers=headers)
+
+
+def render_markdown(content):
+    """Renders content in html markup format."""
+    output = Markup(markdown.markdown(content))
+    return output
+
 
 conn_err_msg = """
 Pyramid is having a problem using your SQL database.  The problem
