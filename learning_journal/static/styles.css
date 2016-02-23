@@ -3,6 +3,7 @@
 body {
     /*background-color: #eee;*/
     background-image: url("01TILE-fullsz.png");
+    background-position: center;
     background-repeat: repeat;
     margin:0;
     padding:0;
@@ -84,7 +85,10 @@ footer {
 
 /* Main (Where template contents are displayed.) */
 
-main { padding: 105px 10px 25px; } 
+main { 
+    font-family: 'Open Sans', sans-serif;
+    padding: 105px 10px 25px;
+} 
 
 main::after {
     clear:both;
@@ -99,12 +103,7 @@ main h1, h2 {
 
 .shadowed { text-shadow: -2px -2px 2px #aaa; }
 
-main ul { font-family: 'Open Sans', sans-serif; }
-
-main p {
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 0;
-}
+main p { margin-top: 0; }
 
 .smaller { 
     font-size: 65%;
