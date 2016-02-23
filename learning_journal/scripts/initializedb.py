@@ -5,8 +5,6 @@ import transaction
 from learning_journal.models import password_context
 from learning_journal.models import User
 
-from datetime import datetime
-
 from sqlalchemy import engine_from_config
 
 from pyramid.paster import (

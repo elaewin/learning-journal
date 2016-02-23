@@ -1,5 +1,6 @@
 from jinja2 import Markup
 import markdown
+import datetime
 
 from pyramid.view import view_config
 from pyramid.httpexceptions import (
@@ -110,6 +111,12 @@ def render_markdown(content):
             )
         )
     return output
+
+
+def formatted_date(date):
+    """Formats the date string."""
+    format = "%Y-%m-%d %H:%M:%S"
+    return date.strftime(format)
 
 
 conn_err_msg = """
